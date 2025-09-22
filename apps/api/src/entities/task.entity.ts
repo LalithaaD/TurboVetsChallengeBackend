@@ -94,7 +94,7 @@ export class Task {
     if (this.status === TaskStatus.DONE && !this.completedAt) {
       this.completedAt = new Date();
     } else if (this.status !== TaskStatus.DONE && this.completedAt) {
-      this.completedAt = null;
+      this.completedAt = undefined;
     }
   }
 

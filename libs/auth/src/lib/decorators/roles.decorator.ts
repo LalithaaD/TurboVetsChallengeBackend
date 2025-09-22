@@ -1,5 +1,5 @@
 import { SetMetadata } from '@nestjs/common';
-import { RoleType } from '@turbo-vets/data';
+import { RoleType } from '../../../data/src';
 
 export const ROLES_KEY = 'roles';
 

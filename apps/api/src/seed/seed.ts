@@ -1,7 +1,9 @@
 import { DataSource } from 'typeorm';
-import { Permission, PermissionType } from '../entities/permission.entity';
+import { Permission } from '../entities/permission.entity';
 import { Organization } from '../entities/organization.entity';
-import { Role, RoleType } from '../entities/role.entity';
+import { Role } from '../entities/role.entity';
+import { PermissionType } from '../../../../libs/data/src/lib/interfaces/permission.interface';
+import { RoleType } from '../../../../libs/data/src/lib/interfaces/role.interface';
 import { User } from '../entities/user.entity';
 
 export async function seedDatabase(dataSource: DataSource) {

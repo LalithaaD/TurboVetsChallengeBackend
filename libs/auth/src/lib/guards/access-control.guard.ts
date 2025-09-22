@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { RoleType, PermissionType } from '@turbo-vets/data';
+import { RoleType, PermissionType } from '../../../data/src';
 import { AccessControlConfig } from '../decorators/access-control.decorator';
 import { RbacService } from '../services/rbac.service';
 

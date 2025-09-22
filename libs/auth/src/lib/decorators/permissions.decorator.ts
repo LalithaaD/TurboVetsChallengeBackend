@@ -1,5 +1,5 @@
 import { SetMetadata } from '@nestjs/common';
-import { PermissionType } from '@turbo-vets/data';
+import { PermissionType } from '../../../data/src';
 
 export const PERMISSIONS_KEY = 'permissions';
 export const PERMISSION_RESOURCE_KEY = 'permission_resource';

@@ -1,28 +1,29 @@
-# 🔐 JWT Authentication Backend
+# 🚀 Task Management Backend
 
 ## Quick Setup
 
-### 1. Navigate to API directory
+### Start the Server
 ```bash
-cd apps/api
+# Start the complete task management server
+node simple-nestjs-server.js
 ```
 
-### 2. Install dependencies
-```bash
-npm install
-```
+**Features:**
+- ✅ Complete task management API
+- ✅ JWT authentication
+- ✅ RBAC enforcement
+- ✅ Audit logging
+- ✅ NestJS-style responses
+- ✅ Production-ready structure
 
-### 3. Start the server
-```bash
-node simple-server.js
-```
-
-**Server will start on `http://localhost:3000`**
+**Server starts on `http://localhost:3000`**
 
 ## Test the API
+
+### Automated Testing
 ```bash
-# Run the test script
-node test-simple-auth.js
+# Test the complete API
+node test-nestjs-endpoints.js
 ```
 
 ## API Endpoints
@@ -33,37 +34,67 @@ node test-simple-auth.js
 | POST | `/auth/register` | Register user | No |
 | POST | `/auth/login` | Login user | No |
 | GET | `/auth/profile` | Get profile | Yes |
-| POST | `/auth/refresh` | Refresh token | Yes |
-| GET | `/users/me` | Get current user | Yes |
+| POST | `/tasks` | Create task | Yes |
+| GET | `/tasks` | List tasks | Yes |
+| PUT | `/tasks/:id` | Update task | Yes |
+| DELETE | `/tasks/:id` | Delete task | Yes |
+| GET | `/tasks/audit-log` | View audit logs | Yes (Admin/Owner) |
 
 ## Example Usage
 
-### Register
+### 1. Register User
 ```bash
 curl -X POST http://localhost:3000/auth/register \
   -H "Content-Type: application/json" \
   -d '{"email":"user@example.com","username":"user","password":"password123","firstName":"John","lastName":"Doe"}'
 ```
 
-### Login
+### 2. Login User
 ```bash
 curl -X POST http://localhost:3000/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"user@example.com","password":"password123"}'
 ```
 
-### Access Protected Route
+### 3. Create Task
 ```bash
-curl -X GET http://localhost:3000/auth/profile \
+curl -X POST http://localhost:3000/tasks \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"title":"My Task","description":"Task description","priority":"high","isPublic":true}'
+```
+
+### 4. List Tasks
+```bash
+curl -X GET http://localhost:3000/tasks \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN"
+```
+
+### 5. Update Task
+```bash
+curl -X PUT http://localhost:3000/tasks/TASK_ID \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Updated Task","status":"in_progress"}'
+```
+
+### 6. View Audit Logs (Admin/Owner only)
+```bash
+curl -X GET http://localhost:3000/tasks/audit-log \
   -H "Authorization: Bearer YOUR_JWT_TOKEN"
 ```
 
 ## Features
+
 - ✅ JWT Authentication
 - ✅ User Registration/Login
 - ✅ Password Hashing
-- ✅ Protected Routes
-- ✅ Token Refresh
+- ✅ Complete Task Management
+- ✅ RBAC (Role-Based Access Control)
+- ✅ Audit Logging
+- ✅ NestJS-style Responses
+- ✅ Pagination & Filtering
+- ✅ Error Handling
 - ✅ CORS Enabled
 - ✅ Input Validation
 

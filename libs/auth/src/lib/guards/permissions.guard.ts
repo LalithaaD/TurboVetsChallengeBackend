@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { PermissionType } from '@turbo-vets/data';
+import { PermissionType } from '../../../data/src';
 import { PERMISSIONS_KEY, PERMISSION_RESOURCE_KEY, PERMISSION_ACTION_KEY } from '../decorators/permissions.decorator';
 import { RbacService } from '../services/rbac.service';
 

@@ -9,7 +9,7 @@ import {
   JoinTable,
 } from 'typeorm';
 import { PermissionType } from '@my-personal-project/data';
-import type { Role } from './role.entity';
+import { Role } from './role.entity';
 
 @Entity('permissions')
 export class Permission {

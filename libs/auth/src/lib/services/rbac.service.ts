@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { RoleType, PermissionType, User, Role, Permission } from '@turbo-vets/data';
+import { RoleType, PermissionType, User, Role, Permission } from '../../../data/src';
 
 export interface AuditLogEntry {
   userId: string;
@@ -120,7 +120,7 @@ export class RbacService {
     // Check explicit permissions first
     if (user.role.permissions) {
       const hasExplicitPermission = user.role.permissions.some(
-        (p) => p.type === permission && p.isActive
+        (p: Permission) => p.type === permission && p.isActive
       );
       if (hasExplicitPermission) {
         return true;
@@ -191,8 +191,8 @@ export class RbacService {
     // Add explicit role permissions
     if (user.role.permissions) {
       user.role.permissions
-        .filter((p) => p.isActive)
-        .forEach((p) => permissions.add(p.type));
+        .filter((p: Permission) => p.isActive)
+        .forEach((p: Permission) => permissions.add(p.type));
     }
 
     // Add default role permissions

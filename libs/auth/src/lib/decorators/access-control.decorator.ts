@@ -1,5 +1,5 @@
 import { SetMetadata } from '@nestjs/common';
-import { RoleType, PermissionType } from '@turbo-vets/data';
+import { RoleType, PermissionType } from '../../../data/src';
 
 export const ACCESS_CONTROL_KEY = 'access_control';
 

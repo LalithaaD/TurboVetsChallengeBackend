@@ -17,6 +17,8 @@
     "paths": {
       "@turbo-vets/auth": ["libs/auth/src/index.ts"],
       "@turbo-vets/data": ["dist/libs/data/src/index.d.ts"],
+      "@my-personal-project/auth": ["libs/auth/src/index.ts"],
+      "@my-personal-project/data": ["libs/data/src/index.ts"],
       "auth": ["libs/auth/src/index.ts"],
       "data": ["dist/libs/data/src/index.d.ts"]
     }
