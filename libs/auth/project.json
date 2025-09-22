@@ -4,6 +4,7 @@
   "sourceRoot": "libs/auth/src",
   "projectType": "library",
   "tags": [],
+  "implicitDependencies": ["data"],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",

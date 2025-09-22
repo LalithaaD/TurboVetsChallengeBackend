@@ -1,3 +1,6 @@
+// Forward declarations to avoid circular imports
+import { User, Organization } from './user.interface';
+
 export interface Task {
   id: string;
   title: string;
@@ -54,27 +57,4 @@ export interface UpdateTaskDto {
   dueDate?: Date;
   tags?: string[];
   isPublic?: boolean;
-}
-
-export interface User {
-  id: string;
-  email: string;
-  username: string;
-  firstName: string;
-  lastName: string;
-  organizationId: string;
-  roleId: string;
-}
-
-export interface Organization {
-  id: string;
-  name: string;
-  description?: string;
-  parentId?: string;
-  parent?: Organization;
-  children?: Organization[];
-  isActive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt?: Date;
 }

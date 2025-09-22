@@ -16,9 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@turbo-vets/auth": ["libs/auth/src/index.ts"],
-      "@turbo-vets/data": ["libs/data/src/index.ts"],
+      "@turbo-vets/data": ["dist/libs/data/src/index.d.ts"],
       "auth": ["libs/auth/src/index.ts"],
-      "data": ["libs/data/src/index.ts"]
+      "data": ["dist/libs/data/src/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

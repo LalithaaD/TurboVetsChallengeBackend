@@ -1,7 +1,9 @@
-import { auth } from './auth';
+import { RbacService } from './services/rbac.service';
 
-describe('auth', () => {
-  it('should work', () => {
-    expect(auth()).toEqual('auth');
+describe('Auth Library', () => {
+  it('should export RbacService', () => {
+    expect(RbacService).toBeDefined();
   });
+
+  // For comprehensive RBAC testing, see rbac.spec.ts
 });

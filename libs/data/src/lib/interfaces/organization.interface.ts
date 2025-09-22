@@ -1,16 +1,3 @@
-export interface Organization {
-  id: string;
-  name: string;
-  description?: string;
-  parentId?: string;
-  parent?: Organization;
-  children?: Organization[];
-  isActive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt?: Date;
-}
-
 export interface CreateOrganizationDto {
   name: string;
   description?: string;

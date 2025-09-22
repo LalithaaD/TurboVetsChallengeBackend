@@ -30,19 +30,6 @@ export enum PermissionType {
   PERMISSION_MANAGE = 'permission:manage'
 }
 
-export interface Permission {
-  id: string;
-  name: string;
-  type: PermissionType;
-  description?: string;
-  resource: string;
-  action: string;
-  isActive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt?: Date;
-}
-
 export interface CreatePermissionDto {
   name: string;
   type: PermissionType;
