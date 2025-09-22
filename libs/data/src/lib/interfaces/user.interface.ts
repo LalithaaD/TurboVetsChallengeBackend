@@ -5,17 +5,54 @@ export interface User {
   password?: string;
   firstName: string;
   lastName: string;
-  role: UserRole;
+  organizationId: string;
+  organization?: Organization;
+  roleId: string;
+  role?: Role;
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
+  deletedAt?: Date;
 }
 
-export enum UserRole {
-  ADMIN = 'admin',
-  MANAGER = 'manager',
-  USER = 'user',
-  VIEWER = 'viewer'
+export interface Organization {
+  id: string;
+  name: string;
+  description?: string;
+  parentId?: string;
+  parent?: Organization;
+  children?: Organization[];
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
+}
+
+export interface Role {
+  id: string;
+  name: string;
+  type: string;
+  description?: string;
+  organizationId: string;
+  organization?: Organization;
+  permissions?: Permission[];
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
+}
+
+export interface Permission {
+  id: string;
+  name: string;
+  type: string;
+  description?: string;
+  resource: string;
+  action: string;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
 }
 
 export interface CreateUserDto {
@@ -24,7 +61,8 @@ export interface CreateUserDto {
   password: string;
   firstName: string;
   lastName: string;
-  role?: UserRole;
+  organizationId: string;
+  roleId: string;
 }
 
 export interface UpdateUserDto {
@@ -32,6 +70,7 @@ export interface UpdateUserDto {
   username?: string;
   firstName?: string;
   lastName?: string;
-  role?: UserRole;
+  organizationId?: string;
+  roleId?: string;
   isActive?: boolean;
 }

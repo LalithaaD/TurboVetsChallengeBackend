@@ -8,12 +8,15 @@ export interface Task {
   assignee?: User;
   createdById: string;
   createdBy: User;
+  organizationId: string;
+  organization?: Organization;
   dueDate?: Date;
   completedAt?: Date;
   tags: string[];
   isPublic: boolean;
   createdAt: Date;
   updatedAt: Date;
+  deletedAt?: Date;
 }
 
 export enum TaskStatus {
@@ -36,6 +39,7 @@ export interface CreateTaskDto {
   description: string;
   priority: TaskPriority;
   assigneeId?: string;
+  organizationId: string;
   dueDate?: Date;
   tags?: string[];
   isPublic?: boolean;
@@ -58,5 +62,19 @@ export interface User {
   username: string;
   firstName: string;
   lastName: string;
-  role: string;
+  organizationId: string;
+  roleId: string;
+}
+
+export interface Organization {
+  id: string;
+  name: string;
+  description?: string;
+  parentId?: string;
+  parent?: Organization;
+  children?: Organization[];
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
 }
