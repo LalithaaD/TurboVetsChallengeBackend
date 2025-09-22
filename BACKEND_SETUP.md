@@ -99,3 +99,45 @@ curl -X GET http://localhost:3000/tasks/audit-log \
 - ✅ Input Validation
 
 **No database setup required - uses in-memory storage for simplicity.**
+
+## Environment Configuration
+
+### .env File Setup
+Create a `.env` file in the project root with the following variables:
+
+```bash
+# JWT Configuration
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production-make-it-long-and-complex
+JWT_EXPIRES_IN=24h
+
+# Password Hashing
+BCRYPT_ROUNDS=10
+
+# Server Configuration
+PORT=3000
+NODE_ENV=development
+
+# Database Configuration (for future use)
+# DATABASE_URL=sqlite:database.sqlite
+# DATABASE_URL=postgresql://username:password@localhost:5432/database_name
+
+# CORS Configuration
+CORS_ORIGIN=*
+
+# Logging
+LOG_LEVEL=info
+
+# Security
+SESSION_SECRET=your-session-secret-change-this-in-production
+```
+
+### Security Notes
+- **JWT_SECRET**: Use a cryptographically secure random string (64+ characters)
+- **Never commit .env to git** - Environment variables contain sensitive data
+- **Generate different secrets** for different environments (dev/staging/prod)
+
+### Generate Secure JWT Secret
+```bash
+# Generate a secure JWT secret
+node -e "console.log('JWT_SECRET=' + require('crypto').randomBytes(64).toString('hex'))"
+```

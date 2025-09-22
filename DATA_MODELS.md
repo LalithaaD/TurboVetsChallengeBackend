@@ -147,7 +147,7 @@ npx nx build data
 Create a `.env` file in the project root:
 ```bash
 # JWT Configuration
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production-make-it-long-and-complex
 JWT_EXPIRES_IN=24h
 
 # Password Hashing
@@ -161,6 +161,21 @@ NODE_ENV=development
 DATABASE_URL=sqlite:database.sqlite
 # or for PostgreSQL:
 # DATABASE_URL=postgresql://username:password@localhost:5432/database_name
+
+# CORS Configuration
+CORS_ORIGIN=*
+
+# Logging
+LOG_LEVEL=info
+
+# Security
+SESSION_SECRET=your-session-secret-change-this-in-production
+```
+
+#### Generate Secure JWT Secret
+```bash
+# Generate a cryptographically secure JWT secret
+node -e "console.log('JWT_SECRET=' + require('crypto').randomBytes(64).toString('hex'))"
 ```
 
 ### 🐛 Troubleshooting
